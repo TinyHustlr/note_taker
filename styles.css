@@ -1,10 +1,15 @@
 #newnote {
     display: inline;
-    height: 200px;
+    height: 42px;
     width: 400px;
 }
 
 #zelda {
     height: 100%;
     width: 100px;
+}
+
+#newnote {
+    font-size: 20px;
+    padding: 0px 0px 50px 0px;
 }

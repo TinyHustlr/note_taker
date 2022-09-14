@@ -8,11 +8,11 @@
     <title>Zelda's Notebook</title>
 </head>
 <body>
-    <div id="background">
         <img id="zelda" alt="Princess zelda from BOTW in white dress using power" src="/images/zelda_botw.webp">
-        <h1>Zelda's Notebook</h1>
-        <input id="newnote" placeholder="New note" type="text" >
-    </div>
+        <h1 id="heading-el">Zelda's Notebook</h1>
+        <textarea id="newnote-el" placeholder="New note" type="text" rows="4" cols="50"></textarea> <!--Textarea with rows and cols is workaround to specify how the box wraps text-->
+        <button id="note-btn">Submit</button>
+        <ul id="noteslist-el"></ul>
 </body>
 <script src="index.js"></script>
 </html>
