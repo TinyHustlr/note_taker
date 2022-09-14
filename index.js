@@ -7,19 +7,24 @@ let notesTaken = []
 let zeldaComments = ["Okay I got that. I'll be sure Ganon does not see it.", "Noted. I might also let Link know for safe keeping.", "Well that is very interesting. I shall remember it during my research of Hyrule.", "Thank you for trusting me with that very important information.", "Oh if Ganon knew what you just wrote, we could be in a lot of trouble"]
 
 
+renderNotes()
 
-if (notesTaken) {
-    NotesTaken = localStorage.getItem("ZeldasNotes")
+
+function renderNotes() {
+    NotesTaken = JSON.parse(localStorage.getItem("ZeldasNotes"))
     for (let i = 0; i < notesTaken.length; i++) {
       noteslistEL.innerHTML += `<li class="listItem-el">${notesTaken[i]}</li>`    
     }
-}
+}  
+
+ 
 
 noteBtn.addEventListener("click", function() {
     notesTaken += newNoteEl.value // add notes to the array
-    localStorage.setItem("ZeldasNotes", notesTaken) // add notes to local storage
+    localStorage.setItem("ZeldasNotes", JSON.stringify(notesTaken)) // add notes to local storage
     let randomChatIndex = Math.floor(Math.random() * zeldaComments.length)
     zeldachatEl.textContent = zeldaComments[randomChatIndex]
+    renderNotes()
 })
 
 deleteBtn.addEventListener("click", function() {
@@ -27,4 +32,5 @@ deleteBtn.addEventListener("click", function() {
     alert("Are you sure? This cannot be undone.")
     localStorage.clear()
     notesTaken = []
+    renderNotes()
 })
