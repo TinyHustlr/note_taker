@@ -4,6 +4,8 @@ const noteslistEL = document.querySelector("#noteslist-el")
 const zeldachatEl = document.querySelector("#zeldachat-el")
 let newNoteEl = document.querySelector("#newnote-el")
 let notesTaken = []
+// const storeNotes = JSON.stringify(notesTaken)
+// const retrieveNotes = JSON.parse(notesTaken)
 let zeldaComments = ["Okay I got that. I'll be sure Ganon does not see it.", "Noted. I might also let Link know for safe keeping.", "Well that is very interesting. I shall remember it during my research of Hyrule.", "Thank you for trusting me with that very important information.", "Oh if Ganon knew what you just wrote, we could be in a lot of trouble"]
 
 
@@ -11,7 +13,8 @@ renderNotes()
 
 
 function renderNotes() {
-    NotesTaken = JSON.parse(localStorage.getItem("ZeldasNotes"))
+    localStorage.getItem("ZeldasNotes", notesTaken)
+    console.log(typeof notesTaken)
     for (let i = 0; i < notesTaken.length; i++) {
       noteslistEL.innerHTML += `<li class="listItem-el">${notesTaken[i]}</li>`    
     }
@@ -21,7 +24,7 @@ function renderNotes() {
 
 noteBtn.addEventListener("click", function() {
     notesTaken += newNoteEl.value // add notes to the array
-    localStorage.setItem("ZeldasNotes", JSON.stringify(notesTaken)) // add notes to local storage
+    localStorage.setItem("ZeldasNotes", notesTaken) // add notes to local storage
     let randomChatIndex = Math.floor(Math.random() * zeldaComments.length)
     zeldachatEl.textContent = zeldaComments[randomChatIndex]
     renderNotes()
@@ -34,3 +37,4 @@ deleteBtn.addEventListener("click", function() {
     notesTaken = []
     renderNotes()
 })
+
