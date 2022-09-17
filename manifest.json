@@ -1,9 +1,14 @@
 {
-    "manifest_version": 4,
+    "manifest_version": "0.0.1",
     "name": "Zelda's Notebook",
     "version": "1.0",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      },
     "action": {
-        "default_popup": "index.html",
-        "default_icon": "/images/zelda_botw.webp"
-    }
+        "default_popup": "index.html"
+    },
+    "description": "A simple Legend of Zelda themed note taking extension. This is the MVP version for testing and feedback."
 }
